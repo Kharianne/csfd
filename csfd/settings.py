@@ -9,6 +9,8 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+# This file is ok for development and purpose of this assignment
+# For production this file should be modified (secret_key, db etc)
 
 from pathlib import Path
 
