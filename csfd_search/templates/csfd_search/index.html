@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSFD search</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body>
+    <div class="row">
+        <div class="w-25 mx-auto">
+            <h1>CSFD search</h1>
+                <form class="row g-3">
+                  <div class="col-auto">
+                    <label for="search" class="visually-hidden">Search</label>
+                    <input type="text" class="form-control" id="search" placeholder="Search" name="search">
+                  </div>
+                  <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3">Search</button>
+                  </div>
+                </form>
+        </div>
+    </div>
+
+
+    <div class="row d-flex justify-content-center flex-nowrap">
+        {% if not actors and not movies and query %}
+            <div class="col-auto">
+                {{ query }} not found.
+            </div>
+        {% endif %}
+        <div class="col-auto">
+            {% if movies %}
+             <h2>Movies</h2>
+            {% endif %}
+            {% for movie in movies %}
+                <div>
+                    <a href="{{movie.get_absolute_url}}">{{movie.name}}</a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-auto">
+            {% if actors %}
+             <h2>Actors</h2>
+            {% endif %}
+            {% for actor in actors %}
+                <div>
+                    <a href="{{actor.get_absolute_url}}">{{actor.name}}</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>
